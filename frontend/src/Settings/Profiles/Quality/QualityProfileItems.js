@@ -163,7 +163,6 @@ class QualityProfileItems extends Component {
                       name={quality ? quality.name : name}
                       allowed={allowed}
                       items={items}
-                      sortIndex={index}
                       qualityIndex={`${index + 1}`}
                       isInGroup={false}
                       isDragging={isDragging}
@@ -186,8 +185,8 @@ class QualityProfileItems extends Component {
 
 QualityProfileItems.propTypes = {
   editGroups: PropTypes.bool.isRequired,
-  dragQualityIndex: PropTypes.number,
-  dropQualityIndex: PropTypes.number,
+  dragQualityIndex: PropTypes.string,
+  dropQualityIndex: PropTypes.string,
   dropPosition: PropTypes.string,
   qualityProfileItems: PropTypes.arrayOf(PropTypes.object).isRequired,
   errors: PropTypes.arrayOf(PropTypes.object),

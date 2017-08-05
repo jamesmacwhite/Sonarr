@@ -55,8 +55,7 @@ class QualityProfileItemDragPreview extends Component {
       groupId,
       qualityId,
       name,
-      allowed,
-      sortIndex
+      allowed
     } = item;
 
     // TODO: Show a different preview for groups
@@ -73,7 +72,6 @@ class QualityProfileItemDragPreview extends Component {
             qualityId={groupId || qualityId}
             name={name}
             allowed={allowed}
-            sortIndex={sortIndex}
             isDragging={false}
           />
         </div>

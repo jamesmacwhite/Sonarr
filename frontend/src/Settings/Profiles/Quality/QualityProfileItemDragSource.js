@@ -13,6 +13,7 @@ const qualityProfileItemDragSource = {
     const {
       editGroups,
       qualityIndex,
+      groupId,
       qualityId,
       name,
       allowed
@@ -21,6 +22,8 @@ const qualityProfileItemDragSource = {
     return {
       editGroups,
       qualityIndex,
+      groupId,
+      qualityId,
       isGroup: !qualityId,
       name,
       allowed
@@ -112,7 +115,6 @@ class QualityProfileItemDragSource extends Component {
       name,
       allowed,
       items,
-      sortIndex,
       qualityIndex,
       isDragging,
       isDraggingUp,
@@ -158,7 +160,6 @@ class QualityProfileItemDragSource extends Component {
               name={name}
               allowed={allowed}
               items={items}
-              sortIndex={sortIndex}
               qualityIndex={qualityIndex}
               isDragging={isDragging}
               isDraggingUp={isDraggingUp}
@@ -181,7 +182,6 @@ class QualityProfileItemDragSource extends Component {
               qualityId={qualityId}
               name={name}
               allowed={allowed}
-              sortIndex={sortIndex}
               qualityIndex={qualityIndex}
               isDragging={isDragging}
               isOverCurrent={isOverCurrent}
@@ -212,7 +212,6 @@ QualityProfileItemDragSource.propTypes = {
   name: PropTypes.string.isRequired,
   allowed: PropTypes.bool.isRequired,
   items: PropTypes.arrayOf(PropTypes.object),
-  sortIndex: PropTypes.number.isRequired,
   qualityIndex: PropTypes.string.isRequired,
   isDragging: PropTypes.bool,
   isDraggingUp: PropTypes.bool,

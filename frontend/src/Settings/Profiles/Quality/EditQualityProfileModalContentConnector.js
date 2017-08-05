@@ -303,7 +303,7 @@ class EditQualityProfileModalContentConnector extends Component {
 
     if (
       dragQualityIndex !== this.state.dragQualityIndex ||
-      dropQualityIndex !== this.state.dropQualityIndex ||
+      adjustedDropQualityIndex !== this.state.dropQualityIndex ||
       dropPosition !== this.state.dropPosition
     ) {
       this.setState({

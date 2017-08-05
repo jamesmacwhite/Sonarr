@@ -112,7 +112,6 @@ QualityProfileItem.propTypes = {
   qualityId: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   allowed: PropTypes.bool.isRequired,
-  sortIndex: PropTypes.number.isRequired,
   isDragging: PropTypes.bool.isRequired,
   isOverCurrent: PropTypes.bool.isRequired,
   isInGroup: PropTypes.bool,
@@ -123,6 +122,7 @@ QualityProfileItem.propTypes = {
 
 QualityProfileItem.defaultProps = {
   isPreview: false,
+  isOverCurrent: false,
   // The drag preview will not connect the drag handle.
   connectDragSource: (node) => node
 };
