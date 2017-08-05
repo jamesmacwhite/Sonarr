@@ -24,39 +24,20 @@ class QualityProfileItems extends Component {
     super(props, context);
 
     this.state = {
-      qualitiesHeight: 0,
-      qualitiesHeightEditGroups: 0
+      qualitiesHeight: 0
     };
+  }
+
+  componentDidMount() {
+    this.props.onToggleEditGroupsMode();
   }
 
   //
   // Listeners
 
   onMeasure = ({ height }) => {
-    const editGroups = this.props.editGroups;
-
-    const {
-      qualitiesHeight,
-      qualitiesHeightEditGroups
-    } = this.state;
-
-    const heightState = editGroups ?
-      qualitiesHeightEditGroups :
-      qualitiesHeight;
-
-    if (heightState !== height) {
-      // Add the item height + padding
-      const newHeight = height + ITEM_HEIGHT + (ITEM_PADDING * 2);
-
-      if (editGroups) {
-        this.setState({
-          qualitiesHeightEditGroups: newHeight
-        });
-      } else {
-        this.setState({
-          qualitiesHeight: newHeight
-        });
-      }
+    if (height > this.state.qualitiesHeight) {
+      this.setState({ qualitiesHeight: height });
     }
   }
 
@@ -78,12 +59,6 @@ class QualityProfileItems extends Component {
       ...otherProps
     } = this.props;
 
-    const {
-      qualitiesHeight,
-      qualitiesHeightEditGroups
-    } = this.state;
-
-    const qualitiesMinHeight = editGroups ? qualitiesHeightEditGroups : qualitiesHeight;
     const isDragging = dropQualityIndex !== null;
     const isDraggingUp = isDragging && dropPosition === 'above';
     const isDraggingDown = isDragging && dropPosition === 'below';
@@ -148,7 +123,7 @@ class QualityProfileItems extends Component {
           >
             <div
               className={styles.qualities}
-              style={{ minHeight: `${qualitiesMinHeight}px` }}
+              style={{ minHeight: `${this.state.qualitiesHeight}px` }}
             >
               {
                 qualityProfileItems.map(({ id, name, allowed, quality, items }, index) => {

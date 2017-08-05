@@ -94,7 +94,7 @@ class EditQualityProfileModalContentConnector extends Component {
       dragQualityIndex: null,
       dropQualityIndex: null,
       dropPosition: null,
-      editGroups: false
+      editGroups: true
     };
   }
 
